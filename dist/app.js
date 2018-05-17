@@ -12,10 +12,8 @@ dotenv_1.default.config({ path: ".env" });
 const app = express_1.default();
 exports.app = app;
 app.set('port', process.env.PORT || 6000);
-/* SETUP THE PROXY */
-const monolithProxy = express_http_proxy_1.default(process.env.HOST_RC_BACKEND);
 // proxy every request for now. *NOTE - future services will be added here as they are developed.
 app.use((req, res, next) => {
-    monolithProxy(req, res, next);
+    express_http_proxy_1.default(process.env.HOST_RC_BACKEND)(req, res, next);
 });
 //# sourceMappingURL=app.js.map

@@ -1,0 +1,22 @@
+version: '3.3'
+
+networks:
+  default:
+    external:
+      name: research-coder
+
+services:
+  # API GATEWAY
+  rc-api-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: rc-api-gateway
+    volumes:
+      - ./:/app
+    env_file: .env
+    environment:
+      RC_API_HOST: rc-api
+      PORT: 80
+    ports:
+      - 8001:80

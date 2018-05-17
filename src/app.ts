@@ -9,12 +9,9 @@ dotenv.config({ path: ".env" });
 const app = express()
 app.set('port', process.env.PORT || 6000)
 
-/* SETUP THE PROXY */
-const monolithProxy = httpProxy(process.env.HOST_RC_BACKEND)
-
 // proxy every request for now. *NOTE - future services will be added here as they are developed.
 app.use((req, res, next) => {
-    monolithProxy(req, res, next)
+    httpProxy(process.env.HOST_RC_BACKEND)(req, res, next)
 })
 
 export { app }
