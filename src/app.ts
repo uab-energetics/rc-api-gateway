@@ -9,6 +9,13 @@ dotenv.config({ path: ".env" });
 const app = express()
 app.set('port', process.env.PORT || 6000)
 
+app.post('/login', (req, res, next) => {
+    httpProxy('rc-auth')(req, res, next)
+})
+app.post('/register', (req, res, next) => {
+    httpProxy('rc-auth')(req, res, next)
+})
+
 // proxy every request for now. *NOTE - future services will be added here as they are developed.
 app.use((req, res, next) => {
     httpProxy(process.env.HOST_RC_BACKEND)(req, res, next)
