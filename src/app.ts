@@ -21,7 +21,7 @@ app.post('/auth/register', httpProxy(process.env.RC_AUTHENTICATION_HOST, {
     proxyReqPathResolver: (req) => '/register'
 }))
 
-app.post('/auth/github', httpProxy(process.env.RC_AUTHENTICATION_HOST, {
+app.get('/auth/github', httpProxy(process.env.RC_AUTHENTICATION_HOST, {
     proxyReqPathResolver: (req) => '/oauth/github'
 }))
 
