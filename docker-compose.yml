@@ -14,9 +14,9 @@ services:
     container_name: rc-api-gateway
     volumes:
       - ./:/app
-    env_file: .env
     environment:
-      RC_API_HOST: rc-api
+      RC_AUTHENTICATION_HOST: rc-auth
+      RC_BACKEND_HOST: rc-api
       PORT: 80
     ports:
       - 8001:80
