@@ -4,6 +4,7 @@
   "description": "API Gateway for Research Coder",
   "main": "dist/index.js",
   "scripts": {
+    "serve": "node dist/index.js",
     "build": "tsc",
     "watch": "concurrently -k -p '[{name}]' -n 'TypeScript,Node' -c 'yellow.bold,cyan.bold,green.bold' 'npm run watch-ts' 'npm run watch-node'",
     "watch-ts": "tsc -w",
