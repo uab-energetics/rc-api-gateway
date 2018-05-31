@@ -5,10 +5,6 @@ language: node_js # can be any language
 services:
   - docker # required, but travis uses older version of docker :(
 
-branches:
-  only:
-  - master
-
 install:
   - echo "install nothing!" # put your normal pre-testing installs here
 
@@ -18,5 +14,5 @@ script:
 after_success:
   - docker --version
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - docker build -t chrisrocco/rc-api-gateway .
-  - docker push chrisrocco/rc-api-gateway
+  - docker build -t chrisrocco/rc-api-gateway:$TRAVIS_BRANCH .
+  - docker push chrisrocco/rc-api-gateway:$TRAVIS_BRANCH
