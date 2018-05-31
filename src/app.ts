@@ -25,9 +25,9 @@ app.get('/auth/github', httpProxy(process.env.RC_AUTHENTICATION_HOST, {
     proxyReqPathResolver: (req) => '/oauth/github'
 }))
 
+app.get('/oauth/github/callback', httpProxy(process.env.RC_AUTHENTICATION_HOST))
+
 // proxy every request for now. *NOTE - future services will be added here as they are developed.
-app.use((req, res, next) => {
-    httpProxy(process.env.RC_BACKEND_HOST)(req, res, next)
-})
+app.use(httpProxy(process.env.RC_BACKEND_HOST))
 
 export { app }
