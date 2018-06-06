@@ -11,13 +11,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    container_name: rc-api-gateway
+    container_name: rc-api-gateway-dev
     volumes:
       - ./:/app
     environment:
-      RC_AUTHENTICATION_HOST: rc-auth
-      RC_BACKEND_HOST: rc-api
+      RC_AUTHENTICATION_HOST: rc-authentication
+      RC_BACKEND_HOST: rc-backend
       RC_PUBLICATIONS_HOST: rc-publications
       PORT: 80
     ports:
-      - 8001:80
+      - 8000:80
