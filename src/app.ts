@@ -27,6 +27,8 @@ app.get('/auth/github', httpProxy(process.env.RC_AUTHENTICATION_HOST, {
 
 app.get('/oauth/github/callback', httpProxy(process.env.RC_AUTHENTICATION_HOST))
 
+app.use('/projects/*/pub-repos', httpProxy(process.env.RC_PUBLICATIONS_HOST))
+
 // proxy every request for now. *NOTE - future services will be added here as they are developed.
 app.use(httpProxy(process.env.RC_BACKEND_HOST))
 

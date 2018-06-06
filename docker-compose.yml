@@ -17,6 +17,7 @@ services:
     environment:
       RC_AUTHENTICATION_HOST: rc-auth
       RC_BACKEND_HOST: rc-api
+      RC_PUBLICATIONS_HOST: rc-publications
       PORT: 80
     ports:
       - 8001:80
